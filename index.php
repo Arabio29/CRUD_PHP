@@ -3,7 +3,6 @@
 
 <div class="container p-4">
     <div class="row">
-
       <div class="col-md-4">
 
         <?php if(isset($_SESSION['message'])) { ?>
@@ -14,25 +13,19 @@
         <?php  session_unset(); } ?>
 
         <div class="card card-body">
-
             <form action="save_task.php" method="POST">
-
                 <div class="form-group">
                     <input type="text" name="title" class="form-control" placeholder="Nueva tarea" autofocus>
                 </div>
-
                 <div class="form-group mt-2">
                  <textarea name="description" id="" rows="2" class="form-control" placeholder="Descripción"></textarea>
-                </div>
-                
+                </div>  
                 <input type="submit" class="btn btn-success  w-100 mt-2" name="save_task" value="Guardar">
-
             </form>
         </div>
       </div> 
       
       <div class="col-md-8">
-
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -41,10 +34,8 @@
                 <th>Creado</th>
                 <th>Acciones</th>
               </tr>
-              <tbody>
-                
+              <tbody>               
                 <?php
-
                   $query = "SELECT * FROM task";
                   $result_tasks = mysqli_query($conn, $query);
 
@@ -54,10 +45,9 @@
                         <td><?php echo $row['description'] ?></td>
                         <td><?php echo $row['created_at'] ?></td>
                         <td>
-                          <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary">
+                          <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary mb-1">
                           <i class="fas fa-marker"></i>
                         </a>
-
                           <a href="delete_task.php?id=<?php echo $row['id']?>" class="btn btn-danger">
                           <i class="far fa-trash-alt"></i>
                         </a>
@@ -69,7 +59,6 @@
           </table>
     </div>
 </div>
-
 <?php include("includes/footer.php") ?>
 
 

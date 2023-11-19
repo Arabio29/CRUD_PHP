@@ -1,5 +1,4 @@
 <?php
-
         include("db.php");
 
         if(isset($_GET['id'])){
@@ -7,13 +6,11 @@
             $query = "SELECT * FROM task WHERE id = $id";
             $result = mysqli_query($conn, $query);
         }
-
         if (mysqli_num_rows($result) == 1){
             $row = mysqli_fetch_array($result);
             $title = $row['title'];
             $description = $row['description'];
          }
-
         if(isset($_POST['update'])) {
             $id = $_GET['id'];
             $title = $_POST['title'];
@@ -27,11 +24,9 @@
 
             header("Location: index.php");
         }
-
 ?>
 
 <?php include("includes/header.php"); ?>
-
         <div class="container p-4">
             <div class="row">
                 <div class="col-md-4 mx-auto">
@@ -51,7 +46,4 @@
                 </div>
             </div>
         </div>
-
-
-
 <?php include("includes/footer.php"); ?>
