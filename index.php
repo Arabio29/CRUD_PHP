@@ -1,65 +1,63 @@
-<?php include("db.php") ?>
-<?php include("includes/header.php") ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="main.css"  />
+    <title>ELTASK</title>
+  </head>
+  <body>
+    <div class="w-full h-screen flex">
+      <!-- Formulario -->
+      <div class="w-full md:w-1/2 flex items-center justify-center bg-violet-950">
+      <div class="flex flex-col items-center">  
+        <div>
+            <div class="conteiner mb-5">
+              <span class="text first-text">I'am</span>
+              <span class="text second-text">Eliasib Cantor</span>
+            </div>
 
-<div class="container p-4">
-    <div class="row">
-      <div class="col-md-4">
+            <script>
+            const text = document.querySelector(".second-text");
 
-        <?php if(isset($_SESSION['message'])) { ?>
-          <div class="alert alert-<?= $_SESSION['message_type'];?> alert-dismissible fade show" role="alert">
-            <?= $_SESSION['message'] ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            const textLoad = () => {
+              setTimeout(() => {
+                text.textContent = "Eliasib Cantor";
+              }, 0);
+              setTimeout(() => {
+                text.textContent = "FullStak Developer";
+              }, 4000);
+              setTimeout(() => {
+                text.textContent = "a programmer :)";
+              }, 8000);
+            }
+            textLoad();
+            setInterval(textLoad, 12000);
+            </script>
           </div>
-        <?php  session_unset(); } ?>
+          
+          <div>
 
-        <div class="card card-body">
-            <form action="save_task.php" method="POST">
-                <div class="form-group">
-                    <input type="text" name="title" class="form-control" placeholder="Nueva tarea" autofocus>
-                </div>
-                <div class="form-group mt-2">
-                 <textarea name="description" id="" rows="2" class="form-control" placeholder="Descripción"></textarea>
-                </div>  
-                <input type="submit" class="btn btn-success  w-100 mt-2" name="save_task" value="Guardar">
-            </form>
+            <div class="mt-8 flex flex-col gap-y-4 w-60">
+              <a
+                class="active:scale-[0.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out py-3 rounded-xl bg-violet-500 text-white text-lg font-bold text-center"
+                href="app.php"
+              >
+                Guardar tareas
+              </a>
+            </div>
+          </div>
         </div>
-      </div> 
-      
-      <div class="col-md-8">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Titulo</th>
-                <th>Descripción</th>
-                <th>Creado</th>
-                <th>Acciones</th>
-              </tr>
-              <tbody>               
-                <?php
-                  $query = "SELECT * FROM task";
-                  $result_tasks = mysqli_query($conn, $query);
+      </div>
 
-                  while($row = mysqli_fetch_array($result_tasks)) { ?>
-                      <tr>
-                        <td><?php echo $row['title'] ?></td>
-                        <td><?php echo $row['description'] ?></td>
-                        <td><?php echo $row['created_at'] ?></td>
-                        <td>
-                          <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary mb-1">
-                          <i class="fas fa-marker"></i>
-                        </a>
-                          <a href="delete_task.php?id=<?php echo $row['id']?>" class="btn btn-danger">
-                          <i class="far fa-trash-alt"></i>
-                        </a>
-                        </td>  
-                      </tr>
-                  <?php } ?>
-              </tbody>
-            </thead>
-          </table>
+      <div class="hidden md:flex h-full w-1/2 items-center justify-center relative bg-gray-950">
+        <div class="w-60 h-60 bg-gradient-to-tr from-violet-500 to pink-500 rounded-full animate-spin"></div>
+        <div class="w-full h-1/2 absolute bottom-0 bg-white/1 backdrop-blur-lg"></div>
+      </div>
     </div>
-</div>
-<?php include("includes/footer.php") ?>
+  </body>
+</html>
 
 
-
+        

@@ -22,7 +22,7 @@
             $_SESSION['message'] = 'Tarea actualizada :)';
             $_SESSION['message_type'] = 'warning';
 
-            header("Location: index.php");
+            header("Location: app.php");
         }
 ?>
 
@@ -30,7 +30,7 @@
         <div class="container p-4">
             <div class="row">
                 <div class="col-md-4 mx-auto">
-                    <div class="card card-body">
+                    <div class="card card-body bg-dark border border-warning">
                         <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
                             <div class="form-group mb-2">
                                 <input type="text" name="title" value="<?php echo $title; ?>" class="form-control" placeholder="Actualiza el titulo">
@@ -38,7 +38,7 @@
                             <div class="form-group mb-2">
                                 <textarea name="description" rows="2" class="form-control" placeholder="Edita la descripción"><?php echo $description; ?></textarea>
                             </div>
-                            <button class="btn btn-success w-100" name="update">
+                            <button class="btn btn-secondary w-100" name="update">
                                 Editar
                             </button>
                         </form>

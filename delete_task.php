@@ -1,5 +1,4 @@
 <?php
-
     include("db.php");
 
     if(isset($_GET['id'])){
@@ -13,7 +12,6 @@
         $_SESSION['message'] = 'Tarea eliminada :)';
         $_SESSION['message_type'] = 'danger';
 
-        header("Location: index.php");
+        header("Location: app.php");
     }
-
 ?>
