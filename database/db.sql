@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `task` (
-  `id` int(11) NOT NULL,
+  `id` int(11) PRIMARY KEY NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()

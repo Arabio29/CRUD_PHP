@@ -36,7 +36,7 @@
         </div>
       </div> 
       
-      <div class="col-md-8">
+      <div class="col-md-8 mb-5">
           <table class="table table-dark table-bordered custom-table">
             <thead>
               <tr>
@@ -51,10 +51,11 @@
                   $result_tasks = mysqli_query($conn, $query);
 
                   while($row = mysqli_fetch_array($result_tasks)) { ?>
+
                       <tr>
-                        <td class="text-texto"><?php echo $row['title'] ?></td>
-                        <td class="text-textt"><?php echo $row['description'] ?></td>
-                        <td class="text-textt"><?php echo $row['created_at'] ?></td>
+                        <td class="text-waro"><?php echo $row['title'] ?></td>
+                        <td class="text-war"><?php echo $row['description'] ?></td>
+                        <td class="text-war"><?php echo $row['created_at'] ?></td>
                         <td class="d-flex flex-column">
                           <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary mb-1">
                           <i class="fas fa-marker text-white"></i>
